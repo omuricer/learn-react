@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 import './index.css';
 
 function Square(props) {
@@ -101,6 +102,9 @@ class Game extends React.Component {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
+    const Container = styled.article`
+      background: #F6F6F6;
+    `;
     return (
       <div className="game">
         <div className="game-board">
@@ -110,7 +114,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
+          <Container>{status}</Container>
           <ol>{moves}</ol>
         </div>
       </div>

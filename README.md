@@ -2,5 +2,6 @@
 
 ## run
 ```shell
-docker-compose run --rm --service-ports node npm start
+docker-compose run --rm --service-ports node yarn install
+docker-compose run --rm --service-ports node yarn start
 ```
