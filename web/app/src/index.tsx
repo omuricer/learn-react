@@ -24,7 +24,6 @@ class Board extends React.Component<any> {
   render() {
     return (
       <div>
-        {/* <div className="status">{status}</div> */}
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -83,11 +82,12 @@ class Game extends React.Component<any, GameState> {
   jumpTo(step: number) {
     this.setState({
       stepNumber: step,
+      history: this.state.history.slice(0, step + 1),
       xIsNext: (step % 2) ? false : true,
     });
   }
   render() {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
     let status;
